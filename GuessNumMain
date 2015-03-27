@@ -1,0 +1,70 @@
+//猜数字程序
+
+#include <iostream>
+#include <ctime>
+#include <cstdlib> 
+using namespace std;
+
+int main()
+{	int total = 0, win = 0, lose = 0, num1, num2, num3, input1, input2, input3, right, half_right;
+	string input = "";
+	
+	cout << "需要玩游戏吗？（是Y/否N）";
+	cin >> input;
+	if (input == "N")	cout << "你一共玩了" << total << "局，赢了" << win << "局，输了" << lose << "局。" << endl; 
+	else {
+		while (input == "Y") { 
+			srand(time(NULL));
+		
+			num1 = rand() * 10 / (RAND_MAX + 1);
+			num2 = rand() * 10 / (RAND_MAX + 1);
+			while (num2 == num1) {
+				num2 = rand() * 10 / (RAND_MAX + 1);
+			}
+			num3 = rand() * 10 / (RAND_MAX + 1); 
+			while (num3 == num1 || num3 == num2) {
+				num3 = rand() * 10 / (RAND_MAX + 1);			
+			}													//生成三个不同的随机数。 
+		
+			int times = 0;
+			while (times <= 7) {
+				int i, j;
+			
+				cout << "请输入你猜测的数字：" << endl;
+				cin >> input1 >> input2 >> input3;
+
+				right = 0;
+				half_right = 0;
+			
+				if (input1 == num1) ++right;
+				else if (input1 == num2 || input1 == num3) ++half_right;
+			
+				if (input2 == num2) ++right;
+				else if (input2 == num1 || input2 == num3) ++half_right;
+			
+				if (input3 == num3) ++right;
+				else if (input3 == num1 || input3 == num2) ++half_right;		//进行猜测数与生成数的比较。 
+		
+			
+				if (right ==3) {
+					cout << "恭喜，你猜对了。" << endl;
+					++win;
+					break;							//全对时判定为正确，正确局数加一，并继续下一局游戏。 
+				}
+				else ++times;	cout << right << "A" << half_right << "B" << endl;
+				
+		
+			} 
+			if (times == 7) {
+				cout << "很遗憾，你没有在规定次数内猜对，答案是" << num1 << num2 << num3 << endl;
+				++lose;														// 第7次猜测结束时还没猜对则判定失败。 
+			} 
+		
+			++total;					//总局数加一。 
+		
+			cout << "需要玩游戏吗？（是Y/否N）";
+			cin >> input;
+			if (input == "N")	cout << "你一共玩了" << total << "局，赢了" << win << "局，输了" << lose << "局。" << endl; 
+		}	
+	}	
+  }  
