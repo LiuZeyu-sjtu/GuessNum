@@ -55,7 +55,7 @@ int main()
 				
 		
 			} 
-			if (times == 7 || right != 3) {
+			if (times == 7 && right != 3) {
 				cout << "很遗憾，你没有在规定次数内猜对，答案是" << num1 << num2 << num3 << endl;
 				++lose;														// 第7次猜测结束时还没猜对则判定失败。 
 			} 
