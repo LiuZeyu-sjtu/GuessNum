@@ -46,7 +46,7 @@ int main()
 				else if (input3 == num1 || input3 == num2) ++half_right;		//进行猜测数与生成数的比较。 
 		
 			
-				if (right ==3) {
+				if (right == 3) {
 					cout << "恭喜，你猜对了。" << endl;
 					++win;
 					break;							//全对时判定为正确，正确局数加一，并继续下一局游戏。 
@@ -55,7 +55,7 @@ int main()
 				
 		
 			} 
-			if (times == 7) {
+			if (times == 7 || right != 3) {
 				cout << "很遗憾，你没有在规定次数内猜对，答案是" << num1 << num2 << num3 << endl;
 				++lose;														// 第7次猜测结束时还没猜对则判定失败。 
 			} 
