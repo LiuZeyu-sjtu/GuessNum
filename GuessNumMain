@@ -27,7 +27,7 @@ int main()
 			}													//生成三个不同的随机数。 
 		
 			int times = 0;
-			while (times <= 7) {
+			while (times < 7) {
 				int i, j;
 			
 				cout << "请输入你猜测的数字：" << endl;
@@ -55,7 +55,7 @@ int main()
 				
 		
 			} 
-			if (times == 7 && right != 3) {
+			if (times == 7 || right != 3) {
 				cout << "很遗憾，你没有在规定次数内猜对，答案是" << num1 << num2 << num3 << endl;
 				++lose;														// 第7次猜测结束时还没猜对则判定失败。 
 			} 
@@ -66,5 +66,6 @@ int main()
 			cin >> input;
 			if (input == "N")	cout << "你一共玩了" << total << "局，赢了" << win << "局，输了" << lose << "局。" << endl; 
 		}	
-	}	
+	}
+	return 0;	
   }  
